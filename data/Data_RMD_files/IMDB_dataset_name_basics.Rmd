@@ -1,0 +1,125 @@
+---
+title: "IMDB_dataset_name.basics"
+output:
+  pdf_document: default
+  html_document: default
+date: "2023-09-12"
+---
+
+## General information
+
+This is a report on a dataset downloaded from the IMDB database. This document will allow users to load and understand the content of this dataset, variables and observations. The use and storage of this Non-Commercial dataset is subject to IMDB's terms and conditions. For more details please visit <https://developer.imdb.com/non-commercial-datasets/>. This dataset is contained in a zipped tab-separated-values (TSV) formatted file in the UTF-8 character set. The first line of each variable contains headers which describes what the column contains.
+
+| **File name:**             | **name.basics.tsv.gz**         |
+|----------------------------|--------------------------------|
+| **File type:**             | **tab-separated-values (TSV)** |
+| **Delimeter:**             | **tab**                        |
+| **Load/Update Frequency:** | **daily**                      |
+
+The variables in this dataset are the following:
+
+-   nconst (string) - alphanumeric unique identifier of the name/person
+
+-   primaryName (string)-- name by which the person is most often credited
+
+-   birthYear -- in YYYY format
+
+-   deathYear -- in YYYY format if applicable, else 'NA'
+
+-   primaryProfession (array of strings)-- the top-3 professions of the person
+
+-   knownForTitles (array of tconsts) -- titles the person is known for
+
+# Loading the Data
+
+```{r setup, include=FALSE}
+## Script Setup
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+```
+
+```{r input}
+## Load Data
+### Loading the dataset
+name_basics <- read_tsv('https://datasets.imdbws.com/name.basics.tsv.gz',n_max=Inf)
+
+### Converting birthYear to numeric
+name_basics$birthYear[!grepl("^\\d+$", name_basics$birthYear)] <- NA
+name_basics$birthYear <- as.numeric(name_basics$birthYear)
+
+### Converting deathYear to numeric
+name_basics$deathYear[!grepl("^\\d+$", name_basics$deathYear)] <- NA
+name_basics$deathYear <- as.numeric(name_basics$deathYear)
+```
+
+# Data exploration
+
+```{r,}
+summary(name_basics)
+```
+
+## Exploring each field for length and nullability
+
+```{r}
+# nconst
+max(nchar(name_basics$nconst, keepNA=FALSE))
+sum(is.na(name_basics$nconst))
+
+# primaryName
+max(nchar(name_basics$primaryName, keepNA=FALSE))
+sum(is.na(name_basics$primaryName))
+
+# birthYear
+max(nchar(name_basics$birthYear, keepNA=FALSE))
+sum(is.na(name_basics$birthYear))
+
+# deathYear
+max(nchar(name_basics$deathYear, keepNA=FALSE))
+sum(is.na(name_basics$deathYear))
+
+# primaryProfession
+max(nchar(name_basics$primaryProfession, keepNA=FALSE))
+sum(is.na(name_basics$primaryProfession))
+
+# knownforTitles
+max(nchar(name_basics$knownForTitles, keepNA=FALSE))
+sum(is.na(name_basics$knownForTitles))
+```
+
+## Number of primaryProfession per nconst
+
+```{r}
+Profession_pieces <- str_split(name_basics$primaryProfession, ",")
+Profession_piece_count <- length(Profession_pieces[[1]])
+
+# Average primaryProfessions
+mean(Profession_piece_count)
+```
+
+## Number of knownforTitles per nconst
+
+```{r}
+Titles_pieces <- str_split(name_basics$knownForTitles, ",")
+Titles_piece_count <- length(Titles_pieces[[1]])
+
+# Average knownforTitles
+mean(Titles_piece_count)
+```
+
+## Number of nconst per birthYear
+
+```{r}
+count_birthYear <- name_basics %>%
+  group_by(birthYear) %>%
+  summarize(count = n())
+```
+
+## Number of nconst per birthYear
+
+```{r}
+count_deathYear <- name_basics %>%
+  group_by(deathYear) %>%
+  summarize(count = n())
+```
