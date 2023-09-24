@@ -1,0 +1,59 @@
+---
+title: "Group project dataprep"
+author: "Corinne"
+date: "2023-09-13"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup}
+library(tidyverse)
+library(here)
+library(tinytex)
+```
+
+## Loading and inspecting the data
+
+First of all, we downloaded the data and started to inspect them. Our data set is made of three columns. We kept the number of rows equal to 30 using the function prototype.
+
+```{r Downloading raw data}
+prototype = TRUE
+n_max = Inf
+if (prototype==TRUE) n_max = 30
+title_crew <- read_tsv('https://datasets.imdbws.com/title.crew.tsv.gz', n_max = n_max)
+```
+
+We inspected data by using View() and summary() commands.\
+All of our data are character.\
+The first column contains the movie **title**. Each title is identified by an alphanumeric unique code known as "*tconst*".\
+The second and the third columns show the **writers** and the **directors** of the given title respectively; they are identified by an *array of nconsts* (list of unique identifiers representing directors or writers involved in a particular film or film title).
+
+```{r Data inspection}
+summary(title_crew)
+```
+
+There are no missing values (i.e., all values are **`FALSE`**) in the **`title_crew`** data frame for the "directors" and "writers" columns. This means that all cells in these columns have valid data.
+
+```{r Counting missing value}
+
+is.na(title_crew)
+sum(is.na(title_crew))
+```
+
+## **Data Exploration**
+
+```{r Barplot, fig.cap = "The barplot shows how many times each movie title appears in the title column of our dataframe"}
+barplot(table(title_crew$tconst),
+     ylab = "% of frequencies",
+     xlab = "Movie title" ,
+     main = "Movie title frequencies") 
+```
+
+```{r Barplot_2,  fig.cap = "The barplot shows how many times each Director appears in the Directors column of our dataframe"}
+barplot(table(title_crew$directors),
+     ylab = "% of frequencies",
+     xlab = "Directors" ,
+     main = "Directors frequencies") 
+
+```
