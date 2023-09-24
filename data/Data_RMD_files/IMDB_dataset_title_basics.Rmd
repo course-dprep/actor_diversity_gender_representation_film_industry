@@ -1,0 +1,232 @@
+---
+title: "RMarkdown_title_basics"
+output: 
+  html_document: default
+   pdf_document: default
+date: "2023-09-12"
+---
+
+# General information
+
+This is a report on a dataset downloaded from the IMDB database. This document will allow users to load and understand the content of this dataset, variables and observations. The use and storage of this Non-Commercial dataset is subject to IMDB's terms and conditions. For more details please visit <https://developer.imdb.com/non-commercial-datasets/>. This dataset is contained in a zipped tab-separated-values (TSV) formatted file in the UTF-8 character set. The first line of each variable contains headers which describes what the column contains.
+
+|                            |                            |
+|----------------------------|----------------------------|
+| **File name:**             | title.basics.tsv.gz        |
+| **File type:**             | tab-seperated-values (TSV) |
+| **Delimiter:**             | tab                        |
+| **Load/Update Frequency:** | daily                      |
+
+Fields in this dataset are the following:
+
+-   **tconst (string)** - alphanumeric unique identifier of the title
+
+-   **titleType (string)** - the type/format of the title (e.g. movie, short, tvseries, tvepisode, video, etc)
+
+-   **primaryTitle (string)** - the more popular title / the title used by the filmmakers on promotional materials at the point of release.
+
+-   **originalTitle (string)** - original title, in the original langueage.
+
+-   **isAdult (boolean)** - 0: non-adult title, 1: adult title
+
+-   **startYear ( yyyy)** - represents the release year of a title. In the case of TV Series, it is the series start year.
+
+-   **endYear (yyyy)** - TV Series end year. '\\N' for all other title types
+
+-   **runtimeMinutes -** primary runtime of the title, in minutes
+
+-   **genres (string array)** - includes up to three genres associated with the title.
+
+## Loading the Data
+
+```{r setup, inclue=FALSE}
+## Script Setup
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+```
+
+```{r}
+#Load data
+##Loading the dataset
+title_basics <- read_tsv('https://datasets.imdbws.com/title.basics.tsv.gz', n_max=Inf)
+View(title_basics)
+```
+
+## Data exploration
+
+```{r}
+summary(title_basics)
+
+```
+
+## Exploring each field for length and nullability
+
+```{r}
+# tconst
+max(nchar(title_basics$tconst, keepNA=FALSE))
+sum(is.na(title_basics$tconst))
+
+# titleType
+max(nchar(title_basics$titleType, keepNA=FALSE))
+sum(is.na(title_basics$titleType))
+
+# primaryTitle
+max(nchar(title_basics$primaryTitle, keepNA=FALSE))
+sum(is.na(title_basics$primaryTitle))
+
+# originalTitle
+max(nchar(title_basics$originalTitle, keepNA=FALSE))
+sum(is.na(title_basics$originalTitle))
+
+# isAdult
+max(nchar(title_basics$isAdult, keepNA=FALSE))
+sum(is.na(title_basics$isAdult))
+
+# startYear
+max(nchar(title_basics$startYear, keepNA=FALSE))
+sum(is.na(title_basics$startYear))
+
+# endYear
+max(nchar(title_basics$endYear, keepNA=FALSE))
+sum(is.na(title_basics$endYear))
+
+# runtimeMinutes
+max(nchar(title_basics$runtimeMinutes, keepNA=FALSE))
+sum(is.na(title_basics$runtimeMinutes))
+
+# genres
+max(nchar(title_basics$genres, keepNA=FALSE))
+sum(is.na(title_basics$genres))
+```
+
+## Average number of adressed genres per movie
+
+```{r}
+Movie_genres <- str_split(title_basics$genres, ",")
+Movie_genres_count <- length(Movie_genres[[1]])
+
+# Average genres per Movie
+mean(Movie_genres_count)
+```
+
+## Number of tconst falling under the "Documentary" genre
+
+```{r}
+genre_documentary <- "Documentary"
+count <- title_basics %>%
+  filter(str_detect(genres, genre_documentary)) %>%
+  nrow()
+
+cat("The genre", genre_documentary, "appears in", count, "rows.")
+```
+
+## Number of tconst falling under the "Short" genre
+
+```{r}
+genre_short <- "Short"
+count <- title_basics %>%
+  filter(str_detect(genres, genre_short)) %>%
+  nrow()
+
+cat("The genre", genre_short, "appears in", count, "rows.")
+```
+
+## Number of tconst falling under the "Romance" genre
+
+```{r}
+genre_romance <- "Romance"
+count <- title_basics %>%
+  filter(str_detect(genres, genre_romance)) %>%
+  nrow()
+
+cat("The genre", genre_romance, "appears in", count, "rows.")
+```
+
+## Number of tconst falling under the "Comedy" genre
+
+```{r}
+genre_comedy <- "Comedy"
+count <- title_basics %>%
+  filter(str_detect(genres, genre_comedy)) %>%
+  nrow()
+
+cat("The genre", genre_comedy, "appears in", count, "rows.")
+```
+
+## Number of tconst falling under the "Animation" genre
+
+```{r}
+genre_animation <- "Animation"
+count <- title_basics %>%
+  filter(str_detect(genres, genre_animation)) %>%
+  nrow()
+
+cat("The genre", genre_animation, "appears in", count, "rows.")
+```
+
+## Number of tconst falling under the "News" genre
+
+```{r}
+genre_news <- "News"
+count <- title_basics %>%
+  filter(str_detect(genres, genre_news)) %>%
+  nrow()
+
+cat("The genre", genre_news, "appears in", count, "rows.")
+```
+
+## Number of tconst falling under the "Sport" genre
+
+```{r}
+genre_sport <- "Sport"
+count <- title_basics %>%
+  filter(str_detect(genres, genre_sport)) %>%
+  nrow()
+
+cat("The genre", genre_sport, "appears in", count, "rows.")
+```
+
+## Number of tconst falling under the "Drama" genre
+
+```{r}
+genre_drama <- "Drama"
+count <- title_basics %>%
+  filter(str_detect(genres, genre_drama)) %>%
+  nrow()
+
+cat("The genre", genre_drama, "appears in", count, "rows.")
+```
+
+## Number of tconst falling under the "Horror" genre
+
+```{r}
+genre_horror <- "Horror"
+count <- title_basics %>%
+  filter(str_detect(genres, genre_horror)) %>%
+  nrow()
+
+cat("The genre", genre_horror, "appears in", count, "rows.")
+```
+
+## Number of tconst falling under the "Fantasy" genre
+
+```{r}
+genre_fantasy <- "Fantasy"
+count <- title_basics %>%
+  filter(str_detect(genres, genre_fantasy)) %>%
+  nrow()
+
+cat("The genre", genre_fantasy, "appears in", count, "rows.")
+```
+
+## Number of tconst per startYear
+
+```{r}
+ggplot(data = title_basics, aes(x = startYear)) +
+  geom_bar(fill = "blue") +
+  labs(title = "Number of tconst per Start Year",
+       x = "Start year",
+       y = "# of tconst")
+```
