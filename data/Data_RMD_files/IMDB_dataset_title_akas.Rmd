@@ -1,0 +1,92 @@
+---
+title: "title_akas_rm"
+author: "team 13"
+date: "2023-09-12"
+output: html_document
+---
+
+```{r}
+library(dplyr)
+title.akas <- read_tsv('https://datasets.imdbws.com/title.akas.tsv.gz',n_max = 100)
+View(title.akas)
+dim(title.akas)
+head(title.akas)
+#name.basics <- read_tsv('https://datasets.imdbws.com/name.basics.tsv.gz',n_max = 100)
+#View(name.basics)
+
+```
+
+## General Information
+
+This is a report on a dataset downloaded from IMDB. This document will allow users to understand the content of this dataset, its fields and measurements. The use and storage of this Non-Commercial dataset is subject to IMDB's terms and conditions. For more details and documentation on the dataset please visit <https://developer.imdb.com/non-commercial-datasets/>
+
+This dataset is contained in a gzipped, tab-separated-values (TSV) formatted file in the UTF-8 character set. The first line in each file contains headers that describe what is in each column. A *'\\N'* is used to denote that a particular field is missing or null for that title/name.
+
+|                           |                            |
+|---------------------------|----------------------------|
+| **File name:**            | title.akas.tsv.gz          |
+| **File type:**            | tab-separated-values (TSV) |
+| **Delimiter:**            | tab                        |
+| **Load/Update Frequency** | daily                      |
+
+Fields in this dataset are the following:
+
+-   *titleId* (string) - a tconst, an alphanumeric unique identifier of the title
+
+-   *ordering* (integer) - a number to uniquely identify rows for a given titleId
+
+-   *title* (string) -- the localized title
+
+-   *region* (string) - the region for this version of the title
+
+-   *language* (string) - the language of the title
+
+-   *types* (array) - Enumerated set of attributes for this alternative title. One or more of the following: "alternative", "dvd", "festival", "tv", "video", "working", "original", "imdbDisplay". New values may be added in the future without warning
+
+-   *attributes* (array) - Additional terms to describe this alternative title, not enumerated
+
+-   *isOriginalTitle* (boolean) - 0: not original title; 1: original title
+
+| Field Name      | Data type | Primary Key (Y/N) | Nullable (Y/N) |
+|-----------------|-----------|-------------------|----------------|
+| titleId         | string    | yes               |                |
+| ordering        | integer   | no                |                |
+| title           | string    | no                |                |
+| region          | string    | no                |                |
+| language        | string    | no                |                |
+| types           | array     | no                |                |
+| attributes      | array     | no                |                |
+| isOriginalTitle | boolean   | no                |                |
+
+```{r cars}
+summary(title.akas)
+```
+
+## Observations
+
+Each row represents a movie name released, a movie can be in the list multiple times in another language since many movies are released for audience in different regions. The original movie name is th eone that contains '1' in the isOriginalTitle column.
+
+```{r}
+#Finding length of each field/column
+max(nchar(title.akas$titleId, keepNA = FALSE))
+max(nchar(title.akas$ordering, keepNA = FALSE))
+max(nchar(title.akas$title, keepNA = FALSE))
+max(nchar(title.akas$region, keepNA = FALSE))
+max(nchar(title.akas$language, keepNA = FALSE))
+max(nchar(title.akas$types, keepNA = FALSE))
+max(nchar(title.akas$attributes, keepNA = FALSE))
+max(nchar(title.akas$isOriginalTitle, keepNA = FALSE))
+
+#Counting movie titles by each relevant field/column
+count_region <- title.akas %>% count(region, sort = TRUE)
+count_region
+
+count_lang <- title.akas%>% count(language, sort = TRUE)
+count_lang
+
+count_types <- title.akas%>% count(types, sort = TRUE)
+count_types
+
+count_attributes <- title.akas %>% count(attributes, sort = TRUE)
+count_attributes
+```
