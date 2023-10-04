@@ -4,9 +4,9 @@ library(tidyverse)
 library(readr)
 
 ## Load files
-title_basics <- read_tsv("TitleBasics.tsv", n_max = 1000)
-name_basics <- read_tsv("NameBasics.tsv", n_max = 1000)
-actors <- read_tsv("Actors.tsv", n_max = 1000)
+title_basics <- read_tsv("data/TitleBasics.tsv")
+name_basics <- read_tsv("data/NameBasics.tsv")
+actors <- read_tsv("data/Actors.tsv")
 
 ## Transforming Actors dataset to make it merge-ready
 # Create Actor_ID variable by extracting actor ID from IMDB_actor_homepage and reorder columns
@@ -32,6 +32,7 @@ hollywood_actors_names <- name_split_movies%>%inner_join(actors_dist, by = c('nc
 actors_names_titles <- hollywood_actors_names %>% inner_join(title_basics, by = c('knownForTitles'= 'tconst'))
 
 # Save output merged dataset
-write_tsv(actors_names_titles, "Merged_dataset.tsv")
+dir.create('data')
+write_tsv(actors_names_titles, "data/Merged_dataset.tsv")
  
                 

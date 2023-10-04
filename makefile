@@ -1,9 +1,9 @@
-Merge_Data: NameBasics.tsv Actors.tsv TitleBasics.tsv Merging_datasets.R
-	Rscript Merging_datasets.R
+Merge_Data.tsv: NameBasics.tsv Actors.tsv TitleBasics.tsv src/data-preparation/Merging_datasets.R
+	Rscript src/data-preparation/Merging_datasets.R
 
-NameBasics.tsv TitleBasics.tsv Actors.tsv: download.R
-	Rscript download.R
+NameBasics.tsv TitleBasics.tsv Actors.tsv: src/data-preparation/download.R
+	Rscript src/data-preparation/download.R
 
 clean:
-	R -e "unlink('*.tsv')"
-	R -e "unlink('*.pdf')"
+	R -e "setwd('data'); unlink('*.tsv')"
+	R -e "setwd('data'); unlink('*.pdf')"
