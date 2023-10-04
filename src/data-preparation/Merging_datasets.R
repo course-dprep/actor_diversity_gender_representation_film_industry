@@ -32,7 +32,7 @@ hollywood_actors_names <- name_split_movies%>%inner_join(actors_dist, by = c('nc
 actors_names_titles <- hollywood_actors_names %>% inner_join(title_basics, by = c('knownForTitles'= 'tconst'))
 
 # Save output merged dataset
-dir.create('data')
-write_tsv(actors_names_titles, "data/Merged_dataset.tsv")
+dir.create('gen')
+write_tsv(actors_names_titles, "gen/data-preparation/output/Merged_dataset.tsv")
  
                 
