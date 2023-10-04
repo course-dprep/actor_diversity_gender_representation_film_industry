@@ -1,24 +1,31 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11726018&assignment_repo_type=AssignmentRepo)
-# Example of reproducible research workflow 
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
 
-This is a basic example repository using Gnu make for a reproducible research workflow, as described in detail here: [tilburgsciencehub.com](http://tilburgsciencehub.com/). 
+[![Open in Visual Studio
+Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11726018&assignment_repo_type=AssignmentRepo)
 
-The main aim of this to have a basic structure, which can be easily adjusted to use in an actual project.  In this example project, the following is done: 
-1. Download and prepare data
-2. Run some analysis
-3. Present results in a final pdf generated using LaTeX
+# Diversity of actors in the entertainment industry
 
-## Dependencies
-- R 
-- R packages: `install.packages("stargazer")`
-- [Gnu Make](https://tilburgsciencehub.com/get/make) 
-- [TeX distribution](https://tilburgsciencehub.com/get/latex/?utm_campaign=referral-short)
-- For the `makefile` to work, R, Gnu make and the TeX distribution (specifically `pdflatex`) need to be made available in the system path 
-- Detailed installation instructions can be found here: [tilburgsciencehub.com](http://tilburgsciencehub.com/)
+![](https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg)
 
+1.  **The project**
 
-## Notes
-- `make clean` removes all unncessary temporary files. 
-- Tested under Linux Mint (should work in any linux distro, as well as on Windows and Mac) 
-- IMPORTANT: In `makefile`, when using `\` to split code into multiple lines, no space should follow `\`. Otherwise Gnu make aborts with error 193. 
-- Many possible improvements remain. Comments and contributions are welcome!
+*Project description and research motivation*
+
+Diversity in the entertainment industry has been a topic of interest in
+recent years. Since, many discussions arise from diversity topics. On
+the one hand, ethnic minorities may feel underrepresented in the
+entertainment industry. On the other hand, people may claim diversity is
+being forced when people of color enter settings previously deemed
+"white" in famous historical depictions. Essentially, the entertainment
+sector serves as a type of mirror for our culture. People typically
+follow or are influenced by what they see daily. People probably watch
+entertainment the most, therefore diversity and representation are
+especially important there. The ability for viewers to recognize
+themselves and their experiences on screen fosters a sense of connection
+and understanding, which is why representation is important. Analysis of
+whether and how diversity has changed throughout the years within the
+entertainment sector is therefore quite intriguing.
