@@ -1,4 +1,4 @@
-## THIS FILE DOWNLOADS THE 3 RAW DATASETS AND SAVES THEM AS CSV FILES
+## THIS FILE DOWNLOADS THE 3 RAW DATASETS AND SAVES THEM AS TSV FILES
 
 download_data <- function(url, filename){
   download.file(url = url, destfile = paste0(filename, ".tsv"))
