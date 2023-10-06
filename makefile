@@ -5,5 +5,5 @@ NameBasics.tsv TitleBasics.tsv Actors.tsv: src/data-preparation/download.R
 	Rscript src/data-preparation/download.R
 
 clean:
-	R -e "setwd('data'); unlink('*.tsv')"
-	R -e "setwd('data'); unlink('*.pdf')"
+	find . -type f -name "*.pdf" -delete
+	find . -type f -name "*.tsv" -delete
