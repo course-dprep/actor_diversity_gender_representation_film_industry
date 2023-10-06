@@ -1,4 +1,4 @@
-# Diversity of actors in the film industry
+# Actor diversity and gender representation in the film industry
 
 ![](https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg)
 
@@ -36,13 +36,13 @@
 
 #### *Project description and research motivation*
 
-Diversity in the film industry has been a topic of interest in recent years. Since, many discussions arise from diversity topics. On the one hand, ethnic minorities may feel underrepresented in the film industry. On the other hand, people may claim diversity is being forced when people of color enter settings previously deemed "white" in famous historical depictions, for example in the recent live action remake of 'The Little Mermaid'. Essentially, the film sector serves as a type of mirror for our culture. People typically follow or are influenced by what they see daily. People probably watch entertainment the most, therefore diversity and representation are especially important there. The ability for viewers to recognize themselves and their experiences on screen fosters a sense of connection and understanding, which is why representation is important. Analysis of whether and how diversity has changed throughout the years within the film industry is therefore quite intriguing.
+Diversity in the film industry has been a topic of interest in recent years. Since, many discussions arise from diversity topics. On the one hand, ethnic minorities may feel underrepresented in the film industry. On the other hand, people may claim diversity is being forced when people of color enter settings previously deemed "white" in famous historical depictions, for example in the recent live action remake of 'The Little Mermaid'. Essentially, the film sector serves as a type of mirror for our culture. People typically follow or are influenced by what they see daily. People probably watch entertainment the most, therefore diversity and representation are especially important there. The ability for viewers to recognize themselves and their experiences on screen fosters a sense of connection and understanding, which is why representation in terms of diversity as well as gender is important. Analysis of whether and how actor diversity and gender representation has changed throughout the years within the film industry is therefore quite intriguing.
 
 #### *Research Question*
 
 This project is aimed at the following research question:
 
-\'How does the movie release year influence the actor diversity, measured by the Shannon index, and gender representation in the film industry?\'
+'How does the movie release year influence the actor diversity, measured by the Shannon index, and gender representation in the film industry?'
 
 ## **2) Method**
 
@@ -58,7 +58,7 @@ Additionally, the Harvard Actor Racial Line Dataset was used.
 
 #### *Variables*
 
-The merged dataset in its entirety consists of 31 variables. However, for this analysis a selection of 3 relevant variables will be used, namely:
+The dataset in its entirety consists of 31 variables. However, for this analysis a selection of 3 relevant variables will be used, namely:
 
 | *Variables*    | *Description*                 |
 |----------------|-------------------------------|
@@ -66,7 +66,7 @@ The merged dataset in its entirety consists of 31 variables. However, for this a
 | GENDER         | The gender of the actor       |
 | startYear      | The release year of the movie |
 
-The Shannon index is an index that measures diversity, which is based on ethnicity in this research. This has to be calculated using the 'CHARACTER_RACE' variable from the dataset.
+The Shannon index is an index that measures diversity, which is based on ethnicity in this research. This will be calculated using the 'CHARACTER_RACE' variable from the dataset.
 
 The formula to calculate the Shannon index is:
 
@@ -74,7 +74,7 @@ The formula to calculate the Shannon index is:
 
 Where:
 
--   H is the Shannon index, which represents the ethnic diversity.
+-   H is the Shannon index, which represents the actor diversity.
 
 -   S is the number of different categories.
 
@@ -137,11 +137,11 @@ Cloning the repository
 
 1.  Open your terminal (on mac) / Gitbash (on windows)
 2.  Set your working directory to the preferred location
-3.  Type `git clone https://github.com/course-dprep/actor_diversity_film_industry`
+3.  Type `git clone https://github.com/course-dprep/actor_diversity_gender_representation_film_industry`
 
 Running the makefile
 
-1.  Change the working directory of your terminal to `actor_diversity_film_industry`
+1.  Change the working directory of your terminal to `actor_diversity_gender_representation_film_industry`
 2.  Type `make`
 
 ## **6) Sources**
@@ -152,7 +152,7 @@ Running the makefile
 
 ## **7) Authors**
 
-This repository was created for the course Data Preparation and Workflow Management taught by Hannes Datta, at the Tilburg School of Economics and Management, as part of the Master's program Marketing Analytics. This repository is maintained by Team 13 which consists of:
+This repository was created for the course Data Preparation and Workflow Management taught by Hannes Datta, at the Tilburg School of Economics and Management, as part of the Master's program Marketing Analytics. This repository is maintained by Team 13, which consists of:
 
 -   Stefano Greco Barriada
 
