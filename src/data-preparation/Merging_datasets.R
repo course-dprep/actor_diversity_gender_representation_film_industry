@@ -1,6 +1,7 @@
 ## SETUP
 
 library(tidyverse)
+library(dplyr)
 library(readr)
 
 ## Load files
@@ -29,10 +30,11 @@ name_split_movies <- name_basics %>%
 hollywood_actors_names <- name_split_movies%>%inner_join(actors_dist, by = c('nconst'= 'actor_ID'))
 
 # Joining actor full data with title_basics(Movie titles info)
-actors_names_titles <- hollywood_actors_names %>% inner_join(title_basics, by = c('knownForTitles'= 'tconst'))
+actors_names_titles <- hollywood_actors_names %>% inner_join(title_basics, by = c('knownForTitles'= 'tconst'))%>%transform(startYear = as.numeric(startYear))
+actors_names_titles <- replace(actors_names_titles, is.na(actors_names_titles),'NA')
 
 # Save output merged dataset
 dir.create('gen')
-write_tsv(actors_names_titles, "gen/data-preparation/output/Merged_dataset.tsv")
+write_csv(actors_names_titles, "gen/data-preparation/output/Merged_dataset.csv")
  
                 

@@ -32,7 +32,7 @@
 
 [7) Authors](https://github.com/course-dprep/actor_diversity_film_industry#7-authors)
 
-## 1**) The project**
+## 1) The project
 
 #### *Project description and research motivation*
 
