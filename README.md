@@ -66,7 +66,7 @@ The merged dataset in its entirety consists of 31 variables. However, for this a
 | GENDER         | The gender of the actor       |
 | startYear      | The release year of the movie |
 
-The Shannon index is an index that measures diversity, which is based on ethnicity in this research. This has to be calculated using the 'CHARACTER_RACE' variables from the dataset.
+The Shannon index is an index that measures diversity, which is based on ethnicity in this research. This has to be calculated using the 'CHARACTER_RACE' variable from the dataset.
 
 The formula to calculate the Shannon index is:
 
