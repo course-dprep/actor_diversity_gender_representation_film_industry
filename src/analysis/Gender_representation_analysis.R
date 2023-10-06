@@ -27,8 +27,8 @@ female_rep_yearly_trend <-gender_yearly_trend %>% filter(GENDER == 'f')
 View(female_rep_yearly_trend)
 
 #Plotting gender proportion trend through time
-ggplot(gender_yearly_trend, aes(x = startYear, y= gender_prop, color = GENDER)) + geom_line() + geom_smooth(method = loess) + ylab('Gender representation (%)') + xlab('Movie Release Year') + ggtitle("Gender Proportions Over Time")
-ggplot(female_rep_yearly_trend, aes(x= startYear, y=gender_prop)) + geom_point() + geom_smooth(method =lm) + ylab('Female Gender representation (%)') + xlab('Movie Release Year') + ggtitle("Female Gender Representation Over Time")
+plot1 <- ggplot(gender_yearly_trend, aes(x = startYear, y= gender_prop, color = GENDER)) + geom_line() + geom_smooth(method = loess) + ylab('Gender representation (%)') + xlab('Movie Release Year') + ggtitle("Gender Proportions Over Time")
+plot2 <- ggplot(female_rep_yearly_trend, aes(x= startYear, y=gender_prop)) + geom_point() + geom_smooth(method =lm) + ylab('Female Gender representation (%)') + xlab('Movie Release Year') + ggtitle("Female Gender Representation Over Time")
 
 #Export the plots to visual documents at a specific location
 ggsave("gen/analysis/output/gender_representation_analysis_plot1.png", plot = plot1, width = 8, height = 6, units = "in")
