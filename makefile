@@ -7,3 +7,4 @@ NameBasics.tsv TitleBasics.tsv Actors.tsv: src/data-preparation/download.R
 clean:
 	find . -type f -name "*.pdf" -delete
 	find . -type f -name "*.tsv" -delete
+	find . -type f -name "*.csv" -delete
