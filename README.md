@@ -2,7 +2,37 @@
 
 ![](https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg)
 
-## **1) The project**
+## Table of content
+
+[1) The project](https://github.com/course-dprep/actor_diversity_film_industry#1-the-project)
+
+-   [Project description and research motivation](https://github.com/course-dprep/actor_diversity_film_industry#project-description-and-research-motivation)
+
+-   [Research question](https://github.com/course-dprep/actor_diversity_film_industry#research-question)
+
+[2) Method](https://github.com/course-dprep/actor_diversity_film_industry#2-method)
+
+-   [Datasets](https://github.com/course-dprep/actor_diversity_film_industry#datasets)
+
+-   [Variables](https://github.com/course-dprep/actor_diversity_film_industry#variables)
+
+-   [Research method](https://github.com/course-dprep/actor_diversity_film_industry#research-method)
+
+[3) Results and interpretation](https://github.com/course-dprep/actor_diversity_film_industry#3-results-and-interpretation)
+
+[4) Repository structure](https://github.com/course-dprep/actor_diversity_film_industry#4-repository-structure)
+
+[5) Running instructions](https://github.com/course-dprep/actor_diversity_film_industry#5-running-instructions)
+
+-   [Dependencies](https://github.com/course-dprep/actor_diversity_film_industry#dependencies)
+
+-   [Running the code](https://github.com/course-dprep/actor_diversity_film_industry#running-the-code)
+
+[6) Sources](https://github.com/course-dprep/actor_diversity_film_industry#6-sources)
+
+[7) Authors](https://github.com/course-dprep/actor_diversity_film_industry#7-authors)
+
+## 1**) The project**
 
 #### *Project description and research motivation*
 
@@ -33,12 +63,14 @@ The merged dataset in its entirety consists of 31 variables. However, for this a
 | *Variables*    | *Description*                 |
 |----------------|-------------------------------|
 | Character_race | The ethnicity of the actor    |
-| Gender         | Gender of the actor           |
+| Gender         | The gender of the actor       |
 | Start_year     | The release year of the movie |
 
 The Shannon index is an index that measures diversity, which is based on ethnicity in this research. This has to be calculated using the 'character_race' variables from the dataset.
 
-The formula to calculate the Shannon index is: ![](https://d2vlcm61l7u1fs.cloudfront.net/media%2Fbc8%2Fbc85be7f-45af-4480-9af6-2fbf81af0717%2FphpT6oANu.png)
+The formula to calculate the Shannon index is:
+
+![](https://d2vlcm61l7u1fs.cloudfront.net/media%2Fbc8%2Fbc85be7f-45af-4480-9af6-2fbf81af0717%2FphpT6oANu.png)
 
 Where:
 
@@ -91,15 +123,13 @@ Where:
 
 The following packages in R should be installed, by using install.packages(), before running the code. Thereafter, you can load the packages by running the following lines of code:
 
--   `library(tidyverse)`
-
--   `library(readr)`
-
--   `library(here)`
-
--   `library(tinytex)`
-
--   `library(stringr)`
+```         
+library(tidyverse)
+library(readr)
+library(here)
+library(tinytex)
+library(stringr)
+```
 
 #### *Running the code*
 
