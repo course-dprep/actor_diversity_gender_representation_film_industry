@@ -1,4 +1,4 @@
-# Diversity of actors in the entertainment industry
+# Diversity of actors in the film industry
 
 ![](https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg)
 
