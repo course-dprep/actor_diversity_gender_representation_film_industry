@@ -1,4 +1,4 @@
-all: gender_representation_analysis_plot1.png gender_representation_analysis_plot2.png
+all: gender_representation_analysis_plot1.png gender_representation_analysis_plot2.png race_diversity_analysis_plot1.png race_diversity_analysis_plot2.png
 
 gender_representation_analysis_plot1.png gender_representation_analysis_plot2.png: Merge_Data.csv
 	Rscript src/analysis/Gender_representation_analysis.R
