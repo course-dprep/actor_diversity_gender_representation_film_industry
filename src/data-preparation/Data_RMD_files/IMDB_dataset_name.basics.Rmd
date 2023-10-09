@@ -110,16 +110,18 @@ mean(Titles_piece_count)
 
 ## Number of nconst per birthYear
 
-```{r}
+``` {r results='asis'}
 count_birthYear <- name_basics %>%
   group_by(birthYear) %>%
   summarize(count = n())
+summary(count_birthYear)
 ```
 
 ## Number of nconst per birthYear
 
-```{r}
+```{r results='asis'}
 count_deathYear <- name_basics %>%
   group_by(deathYear) %>%
   summarize(count = n())
+summary(count_deathYear)
 ```

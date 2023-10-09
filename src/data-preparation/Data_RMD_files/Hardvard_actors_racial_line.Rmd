@@ -2,9 +2,11 @@
 title: "Actor Racial Lines - Defining diversity"
 author: "SGB"
 date: "2023-09-19"
-output: html_document
-editor_options: 
-  markdown: 
+output:
+  pdf_document: default
+  html_document: default
+editor_options:
+  markdown:
     wrap: 72
 ---
 
@@ -48,7 +50,6 @@ library(ggplot2)
 
 #download actor dataset
 actors <- read_tsv('https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/KERZQY/E3ODSJ', n_max = Inf)
-View(actors)
 
 
 ```
@@ -97,13 +98,13 @@ As expected the most common race in the 'Hollywood' sample is 'White'.
 actors %>% count(CHARACTER_RACE, sort = TRUE)
 char_race <- actors %>%group_by(CHARACTER_RACE)%>%summarize(char_race_count = n(), char_race_perc = round(n()*100/total,2))
 char_race
-ggplot(char_race, aes(x=CHARACTER_RACE, y=char_race_perc, fill = CHARACTER_RACE)) + geom_col() +ggtitle('Actor Representation by Character Race') + ylab('Character Race Proportion (%)')  + scale_fill_manual(values=c('#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00',  '#ffff33', '#f781bf'))
+ggplot(char_race, aes(x=CHARACTER_RACE, y=char_race_perc, fill = CHARACTER_RACE)) + geom_col() +ggtitle('Actor Representation by Character Race') + ylab('Character Race Proportion (%)')  + scale_fill_manual(values=c('#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00',  '#ffff33', '#f781bf','#a65628', '#999999'))
 
 #actor racial lines general summary
 actors %>% count(ACTOR_RACE, sort = TRUE)
 actor_race <- actors%>%group_by(ACTOR_RACE)%>%summarize(actor_count= n(), actor_race_perc = round(n()*100/total,2))
 actor_race
-ggplot(actor_race, aes(x= ACTOR_RACE, y= actor_race_perc, fill = ACTOR_RACE)) + geom_col() +ggtitle('Actor Representation by Actor Race') + ylab('Character Race Proportion (%)') + scale_fill_manual(values=c('#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00',  '#ffff33', '#f781bf'))
+ggplot(actor_race, aes(x= ACTOR_RACE, y= actor_race_perc, fill = ACTOR_RACE)) + geom_col() +ggtitle('Actor Representation by Actor Race') + ylab('Character Race Proportion (%)') + scale_fill_manual(values=c('#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00',  '#ffff33', '#f781bf', '#a65628', '#999999'))
 
 #character racial lines gender summary
 char_gender_race <- actors %>% group_by(GENDER,CHARACTER_RACE) %>% summarize(char_count =n(), char_race_perc = round(n()*100/total,2))

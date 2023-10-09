@@ -1,8 +1,8 @@
 ---
 title: "RMarkdown_title_basics"
 output: 
+  pdf_document: default
   html_document: default
-   pdf_document: default
 date: "2023-09-12"
 ---
 
@@ -51,7 +51,7 @@ library(dplyr)
 #Load data
 ##Loading the dataset
 title_basics <- read_tsv('https://datasets.imdbws.com/title.basics.tsv.gz', n_max=Inf)
-View(title_basics)
+
 ```
 
 ## Data exploration
