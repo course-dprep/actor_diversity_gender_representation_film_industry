@@ -1,23 +1,22 @@
-all: race_1.png race_2.png gender_1.png gender_2.png install_packages
+all: gen/data-preparation/analysis/output/race_1.png gen/data-preparation/analysis/output/race_2.png gen/data-preparation/analysis/output/gender_1.png gen/data-preparation/analysis/output/gender_2.png install_packages
 
-gender_1.png gender_2.png: Merge_Data.csv src/analysis/Gender_representation_analysis.R
+gen/data-preparation/analysis/output/gender_1.png gen/data-preparation/analysis/output/gender_2.png: gen/data-preparation/output/Merge_Data.csv src/analysis/Gender_representation_analysis.R
 	Rscript src/analysis/Gender_representation_analysis.R
 
-race_1.png race_2.png: Merge_Data.csv src/analysis/Shannon_regression.R
+gen/data-preparation/analysis/output/race_1.png gen/data-preparation/analysis/output/race_2.png: gen/data-preparation/output/Merge_Data.csv src/analysis/Shannon_regression.R
 	Rscript src/analysis/Shannon_regression.R
 
-Merge_Data.csv: NameBasics.tsv Actors.tsv TitleBasics.tsv src/data-preparation/Merging_datasets.R
+gen/data-preparation/output/Merge_Data.csv: data/NameBasics.tsv data/Actors.tsv data/TitleBasics.tsv src/data-preparation/Merging_datasets.R
 	Rscript src/data-preparation/Merging_datasets.R
 
-NameBasics.tsv TitleBasics.tsv Actors.tsv: src/data-preparation/download.R
+data/NameBasics.tsv data/TitleBasics.tsv data/Actors.tsv: src/data-preparation/download.R
 	Rscript src/data-preparation/download.R
 	
 install_packages: src/data-preparation/install_packages.R
 	Rscript src/data-preparation/install_packages.R
 
 clean:
-	R -e "unlink('*.pdf')"
-	R -e "unlink('*.csv')"
-	R -e "unlink('*.tsv')"
-	R -e "unlink('*.png')"
-	
+	R -e "unlink(list.files(pattern='*.pdf', recursive=T))"
+	R -e "unlink(list.files(pattern='*.png', recursive=T))"
+	R -e "unlink(list.files(pattern='*.csv', recursive=T))"
+	R -e "unlink(list.files(pattern='*.tsv', recursive=T))"
