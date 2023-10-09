@@ -1,9 +1,9 @@
-all: src/data-preparation/install_packages.R gen/data-preparation/analysis/output/race_diversity_plot1.png gen/data-preparation/analysis/output/race_diversity_plot2.png gen/data-preparation/analysis/output/gender_representation_plot1.png gen/data-preparation/analysis/output/gender_representation_plot2.png 
+all: src/data-preparation/install_packages.R gen/analysis/output/race_diversity_plot1.png gen/analysis/output/race_diversity_plot2.png gen/analysis/output/gender_representation_plot1.png gen/analysis/output/gender_representation_plot2.png 
 
-gen/data-preparation/analysis/output/gender_representation_plot1.png gen/data-preparation/analysis/output/gender_representation_plot2.png: gen/data-preparation/output/Merged_dataset.csv src/analysis/Gender_representation_analysis.R
+gen/analysis/output/gender_representation_plot1.png gen/analysis/output/gender_representation_plot2.png: gen/data-preparation/output/Merged_dataset.csv src/analysis/Gender_representation_analysis.R
 	Rscript src/analysis/Gender_representation_analysis.R
 
-gen/data-preparation/analysis/output/race_diversity_plot1.png gen/data-preparation/analysis/output/race_diversity_plot2.png: src/analysis/Shannon_regression.R gen/data-preparation/output/Merged_dataset.csv 
+gen/analysis/output/race_diversity_plot1.png gen/analysis/output/race_diversity_plot2.png: src/analysis/Shannon_regression.R gen/data-preparation/output/Merged_dataset.csv 
 	Rscript src/analysis/Shannon_regression.R
 
 gen/data-preparation/output/Merged_dataset.csv: data/NameBasics.tsv data/Actors.tsv data/TitleBasics.tsv src/data-preparation/Merging_datasets.R
