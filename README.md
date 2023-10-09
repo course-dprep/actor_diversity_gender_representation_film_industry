@@ -127,14 +127,15 @@ To run our Makefile on Linux or Mac, install XQuartz from [https://www.xquartz.o
 
 #### *Dependencies*
 
-The makefile runs a Rscript which automatically installs all missing packages in R. Thereafter, you can load the packages by running the following lines of code:
+The makefile runs an Rscript which automatically installs all missing packages in R. Our project depends on the following packages; 
 
 ```         
 library(tidyverse)
 library(readr)
-library(here)
-library(tinytex)
+library(dyplyr)
+library(tibble)
 library(stringr)
+library(ggplot2)
 ```
 
 #### *Running the code*
