@@ -39,7 +39,7 @@ Fields in this dataset are the following:
 
 ## Loading the Data
 
-```{r setup, inclue=FALSE}
+```{r setup, include=FALSE}
 ## Script Setup
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)

@@ -1,0 +1,141 @@
+---
+title: "Actor Racial Lines - Defining diversity"
+author: "SGB"
+date: "2023-09-19"
+output:
+  pdf_document: default
+  html_document: default
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+## About - Actor racial lines dataset
+
+This is an actor dataset with information on actors' racial lines
+featured in 780 Hollywood films spanning from 1970 to 2014. This dataset
+belongs to a another study used to analyze the representation of races &
+ethnicity. For more information visit:
+<https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/KERZQY>
+
+## Defining diversity
+
+**Diversity** can be defined as the traits or characteristics of an
+individual, group or team.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## What are some of the key categories within diversity?
+
+There are different dimensions that we can explore diversity. This could
+be physical traits such as age, gender, race/ethnicity, nationality or
+having a disability. There are also social traits like culture,
+education, career, religion, or even socioeconomical status.
+
+## Why is diversity important?
+
+It's important to include people with all of these characteristics on
+the crew so that all members of our global society can be represented,
+that means giving a voice to everyone.
+
+```{r cars}
+#load packages
+library(stringr)
+library(dplyr)
+library(tidyverse)
+library(tibble)
+library(ggplot2)
+
+#download actor dataset
+actors <- read_tsv('https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/KERZQY/E3ODSJ', n_max = Inf)
+
+
+```
+
+## Exploring dataset - Different metrics for diversity
+
+**A. Gender**
+
+m = stands for 'male'
+
+f = stands for 'female'
+
+Most people in the dataset are male, meaning more actors than actresses.
+
+```{r}
+total <- as.numeric(count(actors))
+total
+actors %>% count(GENDER, sort = TRUE)
+gender_sum <-actors %>% group_by(GENDER) %>% summarize(gender_count = n(), gender_perc = round(n()*100/total,2))
+gender_sum
+ggplot(gender_sum, aes(x= GENDER, y = gender_perc, fill = GENDER), weight = gender_perc) + ylab("Gender Proportion (%)") + geom_col() +ggtitle("Actors' Gender Representation") 
+```
+
+**B. Race/Ethnicity**
+
+b = stands for 'Black'
+
+a = stands for 'East Asian'
+
+i = stands for 'Indigenous'
+
+l = stands for 'Latino'
+
+n = stands for 'Near Eastern'
+
+s = stands for 'South Asian'
+
+p = stands for 'Pacific Islander'
+
+w = stands for 'White'
+
+As expected the most common race in the 'Hollywood' sample is 'White'.
+
+```{r}
+#character racial lines general summary
+actors %>% count(CHARACTER_RACE, sort = TRUE)
+char_race <- actors %>%group_by(CHARACTER_RACE)%>%summarize(char_race_count = n(), char_race_perc = round(n()*100/total,2))
+char_race
+ggplot(char_race, aes(x=CHARACTER_RACE, y=char_race_perc, fill = CHARACTER_RACE)) + geom_col() +ggtitle('Actor Representation by Character Race') + ylab('Character Race Proportion (%)')  + scale_fill_manual(values=c('#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00',  '#ffff33', '#f781bf','#a65628', '#999999'))
+
+#actor racial lines general summary
+actors %>% count(ACTOR_RACE, sort = TRUE)
+actor_race <- actors%>%group_by(ACTOR_RACE)%>%summarize(actor_count= n(), actor_race_perc = round(n()*100/total,2))
+actor_race
+ggplot(actor_race, aes(x= ACTOR_RACE, y= actor_race_perc, fill = ACTOR_RACE)) + geom_col() +ggtitle('Actor Representation by Actor Race') + ylab('Character Race Proportion (%)') + scale_fill_manual(values=c('#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00',  '#ffff33', '#f781bf', '#a65628', '#999999'))
+
+#character racial lines gender summary
+char_gender_race <- actors %>% group_by(GENDER,CHARACTER_RACE) %>% summarize(char_count =n(), char_race_perc = round(n()*100/total,2))
+
+
+#actor racial lines gender summary
+actor_gender_race <- actors %>% group_by(GENDER,ACTOR_RACE) %>% summarize(actor_count = n(), actor_race_perc = round(n()*100/total,2))
+
+```
+
+**C. Age**
+
+```{r}
+#age summary in general
+mean(actors$AGE, na.rm = TRUE)
+max(actors$AGE, na.rm = TRUE)
+min(actors$AGE, na.rm = TRUE)
+
+#age summary by gender
+actors %>% group_by(GENDER)%>%summarize(mean_age = round(mean(AGE, na.rm = TRUE),1),median_age = median(AGE,na.rm = TRUE),max_age = max(AGE, na.rm = TRUE), min_age = min(AGE, na.rm = TRUE))
+
+#age summary by character race
+actors%>%group_by(CHARACTER_RACE)%>%summarize(mean_age = round(mean(AGE, na.rm = TRUE),1), median_age = median(AGE,na.rm = TRUE), max_age = max(AGE, na.rm = TRUE), min_age = min(AGE, na.rm = TRUE))
+
+ggplot(actors, aes(x=AGE)) + geom_histogram(binwidth = 10) + ggtitle('Age variation histogram')
+```
+
+## Reference
+
+@data{DVN/KERZQY_2018, author = {Svaikovsky, Victoria and Meisner, Anne
+and Kraicer, Eve and Sims, Matthew}, publisher = {Harvard Dataverse},
+title = {{Racial Lines}}, UNF = {UNF:6:/qYtamtOhoREW8pHL1R47A==}, year =
+{2018}, version = {V3}, doi = {10.7910/DVN/KERZQY}, url =
+{<https://doi.org/10.7910/DVN/KERZQY>}
