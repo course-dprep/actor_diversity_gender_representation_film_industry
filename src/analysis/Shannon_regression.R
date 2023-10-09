@@ -29,8 +29,8 @@ plot1 <- ggplot(year_race_diversity, aes(x= startYear, y=Shannon_Index)) + geom_
 plot2 <- ggplot(year_race_diversity, aes(x= startYear, y=Shannon_Index)) + geom_point(shape=16 ,size= 2, color = 'blue' ) + geom_smooth(method =lm , color = 'darkblue', linetype ='dashed') + ylab('Diversity - Shannon Index') + xlab('Movies Release Year') + ggtitle("Actors' Race/Ethnicity Diversity Over Time")
 
 #Export the plots to visual documents at a specific location
-ggsave("gen/analysis/output/race_diversity_analysis_plot1.png", plot = plot1, width = 8, height = 6, units = "in")
-ggsave("gen/analysis/output/race_diversity_analysis_plot2.png", plot = plot2, width = 8, height = 6, units = "in")
+ggsave("gen/analysis/output/race_diversity_plot1.png", plot = plot1, width = 8, height = 6, units = "in")
+ggsave("gen/analysis/output/race_diversity_plot2.png", plot = plot2, width = 8, height = 6, units = "in")
 
 
 #Race Diversity Analysis - Performing linear regression analysis on Shannon Index (dependent variable) and how Movie release Year (Independent variable) explains that change

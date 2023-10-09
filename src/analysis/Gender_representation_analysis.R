@@ -28,8 +28,8 @@ plot1 <- ggplot(gender_yearly_trend, aes(x = startYear, y= gender_prop, color = 
 plot2 <- ggplot(female_rep_yearly_trend, aes(x= startYear, y=gender_prop)) + geom_point() + geom_smooth(method =lm) + ylab('Female Gender representation (%)') + xlab('Movie Release Year') + ggtitle("Female Gender Representation Over Time")
 
 #Export the plots to visual documents at a specific location
-ggsave("gen/analysis/output/gender_representation_analysis_plot1.png", plot = plot1, width = 8, height = 6, units = "in")
-ggsave("gen/analysis/output/gender_representation_analysis_plot2.png", plot = plot2, width = 8, height = 6, units = "in")
+ggsave("gen/analysis/output/gender_representation_plot1.png", plot = plot1, width = 8, height = 6, units = "in")
+ggsave("gen/analysis/output/gender_representation_plot2.png", plot = plot2, width = 8, height = 6, units = "in")
 
 #Gender Diversity Analysis - Performing linear regression on Female gender proportion (dependent variable) and how Movie release Year (Independent variable) explains that change
 gender_yearlm2 <- lm(gender_prop ~ startYear, data = female_rep_yearly_trend); summary(gender_yearlm2)
