@@ -1,4 +1,4 @@
-all: race_1.png race_2.png gender_1.png gender_2.png
+all: race_1.png race_2.png gender_1.png gender_2.png install_packages
 
 gender_1.png gender_2.png: Merge_Data.csv src/analysis/Gender_representation_analysis.R
 	Rscript src/analysis/Gender_representation_analysis.R
@@ -11,9 +11,13 @@ Merge_Data.csv: NameBasics.tsv Actors.tsv TitleBasics.tsv src/data-preparation/M
 
 NameBasics.tsv TitleBasics.tsv Actors.tsv: src/data-preparation/download.R
 	Rscript src/data-preparation/download.R
+	
+install_packages: src/data-preparation/install_packages.R
+	Rscript src/data-preparation/install_packages.R
 
 clean:
 	R -e "unlink('*.pdf')"
 	R -e "unlink('*.csv')"
 	R -e "unlink('*.tsv')"
 	R -e "unlink('*.png')"
+	

@@ -16,15 +16,12 @@ total_year_actors <- complete_ds%>% group_by(startYear)%>%summarize(actor_total 
 
 #Aggregating based on gender and movie release date for then analyzing gender representation change over time
 year_gender <- complete_ds %>% group_by(GENDER, startYear)%>%summarize( gender_count = n())
-View(year_gender)
 
 #calculating gender proportion (representation) for each year
 gender_yearly_trend <- total_year_actors %>% inner_join(year_gender, by = 'startYear')%>%mutate(gender_prop = gender_count/actor_total) %>% filter(startYear >1970 & startYear <2023) %>% arrange(startYear)
-View(gender_yearly_trend)
 
 #subsetting into Female gender representation for inputs into linear model
 female_rep_yearly_trend <-gender_yearly_trend %>% filter(GENDER == 'f')
-View(female_rep_yearly_trend)
 
 #Plotting gender proportion trend through time
 plot1 <- ggplot(gender_yearly_trend, aes(x = startYear, y= gender_prop, color = GENDER)) + geom_line() + geom_smooth(method = loess) + ylab('Gender representation (%)') + xlab('Movie Release Year') + ggtitle("Gender Proportions Over Time")
