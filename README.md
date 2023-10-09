@@ -82,7 +82,7 @@ Where:
 
 #### *Research Method*
 
-Regression analysis will be performed on the dataset to reach a conclusion. Regression analysis is essential for understanding the factors influencing actor diversity in movies when using the 'Shannon index' and 'gender' as the dependent variables. We will perform two separate analysis to investigate the link between the independent variable startYear, and the two dependent variables, namely 'Shannon index' and 'gender'. Using this statistical method since it allows us to measure the influence of these variables and find important predictors. This approach makes it possible to gain data-driven insights regarding the diversity of the entertainment industry.
+Regression analysis will be performed on the dataset to reach a conclusion. Regression analysis is essential for understanding the factors influencing actor diversity in movies when using the 'Shannon index' and 'gender' as the dependent variables. We will perform two separate analysis to investigate the link between the independent variable startYear, and the two dependent variables, namely 'Shannon index' and 'gender'. Using this statistical method since it allows us to measure the influence of these variables and find important predictors. This approach makes it possible to gain data-driven insights regarding the diversity of the film industry.
 
 The formula for the linear regression is:
 
