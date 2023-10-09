@@ -4,33 +4,35 @@
 
 ## Table of content
 
-[1) The project](https://github.com/course-dprep/actor_diversity_film_industry#1-the-project)
+[1) The project](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#1-the-project)
 
--   [Project description and research motivation](https://github.com/course-dprep/actor_diversity_film_industry#project-description-and-research-motivation)
+-   [Project description and research motivation](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#project-description-and-research-motivation)
 
--   [Research question](https://github.com/course-dprep/actor_diversity_film_industry#research-question)
+-   [Research question](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#research-question)
 
-[2) Method](https://github.com/course-dprep/actor_diversity_film_industry#2-method)
+[2) Method](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#2-method)
 
--   [Datasets](https://github.com/course-dprep/actor_diversity_film_industry#datasets)
+-   [Datasets](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#datasets)
 
--   [Variables](https://github.com/course-dprep/actor_diversity_film_industry#variables)
+-   [Variables](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#variables)
 
--   [Research method](https://github.com/course-dprep/actor_diversity_film_industry#research-method)
+-   [Research method](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#research-method)
 
-[3) Results and interpretation](https://github.com/course-dprep/actor_diversity_film_industry#3-results-and-interpretation)
+[3) Results and interpretation](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#3-results-and-interpretation)
 
-[4) Repository structure](https://github.com/course-dprep/actor_diversity_film_industry#4-repository-structure)
+[4) Repository structure](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#4-repository-structure)
 
-[5) Running instructions](https://github.com/course-dprep/actor_diversity_film_industry#5-running-instructions)
+[5) Running instructions](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#5-running-instructions)
 
--   [Dependencies](https://github.com/course-dprep/actor_diversity_film_industry#dependencies)
+-   [System Requirements](https://github.com/course-dprep/acourse-dprep/actor_diversity_gender_representation_film_industry#system-requirements)
 
--   [Running the code](https://github.com/course-dprep/actor_diversity_film_industry#running-the-code)
+-   [Dependencies](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#dependencies)
 
-[6) Sources](https://github.com/course-dprep/actor_diversity_film_industry#6-sources)
+-   [Running the code](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#running-the-code)
 
-[7) Authors](https://github.com/course-dprep/actor_diversity_film_industry#7-authors)
+[6) Sources](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#6-sources)
+
+[7) Authors](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#7-authors)
 
 ## 1) The project
 
@@ -119,9 +121,13 @@ Where:
 
 ## **5) Running instructions**
 
+#### System Requirements
+
+To run our Makefile on Linux or Mac, install XQuartz from [https://www.xquartz.org](https://www.xquartz.org/), then follow on-screen instructions.
+
 #### *Dependencies*
 
-The following packages in R should be installed, by using install.packages(), before running the code. Thereafter, you can load the packages by running the following lines of code:
+The makefile runs a Rscript which automatically installs all missing packages in R. Thereafter, you can load the packages by running the following lines of code:
 
 ```         
 library(tidyverse)
