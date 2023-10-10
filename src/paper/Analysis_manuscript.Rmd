@@ -4,7 +4,7 @@ output:
   pdf_document:
     latex_engine: xelatex
 date: "2023-10-10"
-authors: "Bjorn Lauwers, Luc van Bree, Sam Villevoye, Sjoerd Bijl"
+authors: "Stefano Greco Barriada, Stan van Goor, Corinne Inzirillo and Arda Reyhan"
 ---
 
 ```{r setup, include=FALSE}
