@@ -1,8 +1,6 @@
 ---
 title: "IMDB_dataset_name.basics"
-output:
-  pdf_document: default
-  html_document: default
+output: pdf_document
 date: "2023-09-12"
 ---
 

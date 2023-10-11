@@ -1,0 +1,1 @@
+rmarkdown::render('../data-preparation/Data_RMD_files/IMDB_dataset_name.basics.Rmd')
