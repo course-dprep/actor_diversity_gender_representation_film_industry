@@ -30,7 +30,7 @@
 
 -   [Running the code](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#running-the-code)
 
-[6) Sources](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#6-sources)
+[6) Resources](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#6-resources)
 
 [7) Authors](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#7-authors)
 
@@ -72,7 +72,9 @@ The Shannon index is an index that measures diversity, which is based on ethnici
 
 The formula to calculate the Shannon index is:
 
-![](https://d2vlcm61l7u1fs.cloudfront.net/media%2Fbc8%2Fbc85be7f-45af-4480-9af6-2fbf81af0717%2FphpT6oANu.png)
+$$
+H = -\sum_{i=1}^{n} (p_i \cdot \ln(p_i))
+$$
 
 Where:
 
@@ -80,7 +82,7 @@ Where:
 
 -   S is the number of different categories.
 
--   pi​ represents the proportion of the total occurrences that belong to the ith category.
+-   pi represents the proportion of the total occurrences that belong to the ith category, which is calculated by the proportion of the "CHARACTER_RACE" variable in every year.
 
 #### *Research Method*
 
@@ -88,17 +90,17 @@ Regression analysis will be performed on the dataset to reach a conclusion. Regr
 
 The formula for the linear regression is:
 
-Y = β0 + β1X1
+$$ Y = \beta_0 + \beta_1X_1 $$
 
 Where:
 
--   Y is the dependent variable, which is the Shannon index.
+-   Y is the dependent variable, which is the Shannon index or the female gender.
 
 -   β0 is the intercept.
 
--   β1 is the coefficient for the independent variables
+-   β1 is the coefficient for the independent variable (startYear).
 
--   X1 is the value of the independent variable
+-   X1 is the value of the independent variable (startYear).
 
 ## **3) Results and interpretation**
 
@@ -123,11 +125,13 @@ Where:
 
 #### System Requirements
 
+To run our Makefile on all computers, install Pandoc from <https://pandoc.org/installing.html> following the instructions for your specific operating system.
+
 To run our Makefile on Linux or Mac, install XQuartz from [https://www.xquartz.org](https://www.xquartz.org/), then follow on-screen instructions.
 
 #### *Dependencies*
 
-The makefile runs an Rscript which automatically installs all missing packages in R. Our project depends on the following packages; 
+The makefile runs an Rscript which automatically installs all missing packages in R. Our project depends on the following packages;
 
 ```         
 library(tidyverse)
@@ -151,7 +155,7 @@ Running the makefile
 1.  Change the working directory of your terminal to `actor_diversity_gender_representation_film_industry`
 2.  Type `make`
 
-## **6) Sources**
+## **6) Resources**
 
 -   IMDb Non-Commercial Datasets: <https://developer.imdb.com/non-commercial-datasets/>
 
