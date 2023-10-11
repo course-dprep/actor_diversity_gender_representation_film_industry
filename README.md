@@ -6,37 +6,37 @@
 
 [1) The project](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#1-the-project)
 
--   [Project description and research motivation](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#project-description-and-research-motivation)
+-   [Project description and research motivation](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#project-description-and-research-motivation)
 
--   [Research question](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#research-question)
+-   [Research question](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#research-question)
 
-[2) Method](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#2-method)
+[2) Method](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#2-method)
 
--   [Datasets](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#datasets)
+-   [Datasets](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#datasets)
 
--   [Variables](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#variables)
+-   [Variables](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#variables)
 
--   [Research method](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#research-method)
+-   [Research method](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#research-method)
 
-[3) Results and interpretation](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#3-results-and-interpretation)
+[3) Results and interpretation](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#3-results-and-interpretation)
 
--   [Diversity](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#diversity)
+-   [Diversity](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#diversity)
 
--   [Gender](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#gender)
+-   [Gender](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#gender)
 
-[4) Repository structure](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#4-repository-structure)
+[4) Repository structure](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#4-repository-structure)
 
-[5) Running instructions](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#5-running-instructions)
+[5) Running instructions](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#5-running-instructions)
 
--   [System Requirements](https://github.com/course-dprep/acourse-dprep/actor_diversity_gender_representation_film_industry#system-requirements)
+-   [System Requirements](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#system-requirements)
 
--   [Dependencies](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#dependencies)
+-   [Dependencies](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#dependencies)
 
--   [Running the code](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#running-the-code)
+-   [Running the code](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#running-the-code)
 
-[6) Resources](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#6-resources)
+[6) Resources](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#6-resources)
 
-[7) Authors](https://github.com/course-dprep/course-dprep/actor_diversity_gender_representation_film_industry#7-authors)
+[7) Authors](https://github.com/course-dprep/actor_diversity_gender_representation_film_industry#7-authors)
 
 ## 1) The project
 
@@ -110,29 +110,11 @@ Where:
 
 #### *Diversity*
 
-To analyze the diversity for each year the Shannon index for each year was initially calculated. Thereafter, we decided to filter out data points prior to 1971 and from 2023 due to limited information on actors. As the graph in figure 1 shows, the diversity increases over time but not consistently. The Shannon index was below 0.3 in 1970 and it turned out to be close to one in 2020.  It represents a total increase of \~ 0.7 half a century. However, the diversity trend was not consistent, in 1980 the index reached the lowest level and it dropped down again in 2010.
-
-![*Figure 1: Actor's race/ethnicity diversity over time (line plot)*](gen/analysis/output/race_diversity_plot1.png)
-
-The results of the regression analysis computed the following formula for diversity: Y1 = -24.263 + 0.01259X1 Where Y1 is the Shannon index and X1 is the movie release year.
-
-The p-value in the model is below the threshold of 0.05 so our results are statistically significant and the null hypothesis can be rejected; meaning that the year a movie is released has an effect on the actors' race diversity index because the Shannon index clearly increases over time indicating a positive effect on actor race diversity. Particularly, if the start year goes up by one unit, the Shannon index increases by 0.0125.
-
-Furthermore, The R squared is equal to 0.7 meaning that the proportion of variation in the dependent variable that can be explained or predicted by the regression model is equal to 0.7; the prediction cannot be 100% accurate and only additional variables could improve the model.
+The results of the regression analysis show that there is a significant positive effect of the release year of a movie on the Shannon index, and therefore the actors' race diversity. However, the increases in diversity is very minimal each year.
 
 #### *Gender*
 
-The graph in figure 2 shows that the gap in gender representation between male and female is decreasing over time. However, the reduction is not so significant since the gap is still big in 2020. Figure 3 shows the increase in the female gender representation over time.
-
-![*Figure 2: Gender representation over time*](gen/analysis/output/gender_representation_plot1.png)
-
-![*Figure 3: Female gender representation over time*](gen/analysis/output/gender_representation_plot2.png)
-
-The results of the regression analysis computed the following formula for female gender: Y2 = -3.246 + 0.00179X1 Where Y2 is the female gender representation and X1 is the movie release year.
-
-The p-value in this model is below the threshold of 0.05 so the results are statistically significant and the null hypothesis can be rejected; this means that the year a movie is released has an effect on the female gender representation because the female gender representation increases over time. In particular, if the start year goes up by one unit, the female gender representation increases by 0.00178.
-
-Furthermore, The R squared is equal to 0.20 meaning that the proportion of variation in the dependent variable that can be explained or predicted by the regression model is equal to 0.20; the prediction cannot be 100% accurate.
+The results of the regression analysis show that there is a significant positive effect of the release year of a movie on the female gender. However, the current gap between male and female is still considerably large.
 
 ## **4) Repository Structure**
 
