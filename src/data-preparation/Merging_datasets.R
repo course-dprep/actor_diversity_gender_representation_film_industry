@@ -5,9 +5,9 @@ library(dplyr)
 library(readr)
 
 ## Load files
-title_basics <- read_tsv("data/TitleBasics.tsv")
-name_basics <- read_tsv("data/NameBasics.tsv")
-actors <- read_tsv("data/Actors.tsv")
+title_basics <- read_tsv("../../data/TitleBasics.tsv")
+name_basics <- read_tsv("../../data/NameBasics.tsv")
+actors <- read_tsv("../../data/Actors.tsv")
 
 ## Transforming Actors dataset to make it merge-ready
 # Create Actor_ID variable by extracting actor ID from IMDB_actor_homepage and reorder columns
@@ -34,7 +34,7 @@ actors_names_titles <- hollywood_actors_names %>% inner_join(title_basics, by = 
 actors_names_titles <- replace(actors_names_titles, is.na(actors_names_titles),'NA')
 
 # Save output merged dataset
-dir.create('gen')
-write_csv(actors_names_titles, "gen/data-preparation/output/Merged_dataset.csv")
+dir.create('../../gen')
+write_csv(actors_names_titles, "../../gen/data-preparation/output/Merged_dataset.csv")
  
                 

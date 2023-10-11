@@ -2,9 +2,7 @@
 title: "Actor Racial Lines - Defining diversity"
 author: "SGB"
 date: "2023-09-19"
-output:
-  pdf_document: default
-  html_document: default
+output: pdf_document
 editor_options:
   markdown:
     wrap: 72

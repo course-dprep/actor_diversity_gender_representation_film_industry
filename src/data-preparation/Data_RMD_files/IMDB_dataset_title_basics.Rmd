@@ -1,8 +1,6 @@
 ---
 title: "RMarkdown_title_basics"
-output: 
-  pdf_document: default
-  html_document: default
+output: pdf_document
 date: "2023-09-12"
 ---
 
