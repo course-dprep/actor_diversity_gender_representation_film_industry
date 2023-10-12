@@ -137,7 +137,21 @@ The results of the regression analysis show that there is a significant positive
 
 #### System Requirements
 
+1.  **LaTeX**
+
+To run our project on Windows, ensure LaTeX is installed using the following instructions:
+
+-   *For General R Users:*
+    You can set up LaTeX by running **`tinytex::install_tinytex()`** in R.
+
+-   *For RStudio Users:*
+    To set up LaTeX in RStudio, run **`tinytex::install_tinytex()`** in the RStudio console.
+
+2.  **Pandoc**
+
 To run our Makefile on all computers, install Pandoc from <https://pandoc.org/installing.html> following the instructions for your specific operating system.
+
+3.  **XQuarts**
 
 To run our Makefile on Linux or Mac, install XQuartz from [https://www.xquartz.org](https://www.xquartz.org/), then follow on-screen instructions.
 
